@@ -962,45 +962,158 @@ header {
   opacity: 0.7;
 }
 
-    @media (max-width: 600px) {
-      body {
-        padding: 20px 8px;
-      }
+   /* =========================================
+   RESPONSIVE: COMPUTADORA, TABLET Y CELULAR
+========================================= */
 
-      .subtitle {
-        margin-bottom: 20px;
-      }
+/* Contenedor general */
+.book-stage {
+  width: 100%;
+  max-width: 1100px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 0 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1800px;
+  box-sizing: border-box;
+}
 
-      #book {
-        width: 94vw;
-      }
+/* El ancho se adapta al espacio disponible */
+#book {
+  width: min(1100px, 94vw);
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 auto;
+}
 
-      .written-page {
-        padding: 28px 22px;
-      }
+/* Las páginas conservan su estructura original */
+.page {
+  box-sizing: border-box;
+  min-width: 0;
+}
 
-      .written-page h2 {
-        font-size: 27px;
-        margin-bottom: 22px;
-      }
+/* =========================================
+   TABLET Y VENTANAS DE ESCRITORIO REDUCIDAS
+========================================= */
 
-      .written-page p {
-        font-size: 17px;
-        line-height: 1.75;
-      }
+@media screen and (min-width: 601px) and (max-width: 1100px) {
 
-     .book-instruction {
-        display: block;
-        width: 100%;
-        margin: -16px auto 30px;
-        color: #ffffff;
-        text-align: center;
-        font-family: Georgia, serif;
-        font-size: 14px;
-        line-height: 1.7;
-      }
+  body {
+    padding: 18px 8px;
+  }
 
-      
+  .book-stage {
+    width: 100%;
+    padding: 0 4px;
+  }
+
+  #book {
+    width: 96vw;
+    max-width: 100%;
+  }
+
+  /* Ajustes solo para páginas escritas */
+  .written-page {
+    padding: clamp(14px, 3vw, 32px);
+  }
+
+  .written-page h2 {
+    font-size: clamp(19px, 2.4vw, 30px);
+    margin-bottom: clamp(12px, 2vw, 24px);
+  }
+
+  .written-page p {
+    font-size: clamp(13px, 1.5vw, 17px);
+    line-height: 1.55;
+  }
+
+  .chapter-index {
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .chapter-index a {
+    padding: 8px 10px;
+    font-size: clamp(11px, 1.35vw, 15px);
+  }
+
+  .page-number {
+    padding-top: 12px;
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   CELULAR: UNA PÁGINA VISIBLE
+========================================= */
+
+@media screen and (max-width: 600px) {
+
+  body {
+    padding: 20px 8px;
+  }
+
+  .subtitle {
+    margin-bottom: 20px;
+  }
+
+  .book-stage {
+    width: 100%;
+    padding: 0;
+  }
+
+  #book {
+    width: 94vw;
+    max-width: 100%;
+  }
+
+  .written-page {
+    padding: 28px 22px;
+  }
+
+  .written-page h2 {
+    font-size: 27px;
+    margin-bottom: 22px;
+  }
+
+  .written-page p {
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  .book-instruction {
+    display: block;
+    width: 100%;
+    margin: -16px auto 30px;
+    color: #ffffff;
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .chapter-index {
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .chapter-index a {
+    padding: 9px 10px;
+    font-size: 13px;
+  }
+
+  .page-number {
+    padding-top: 16px;
+  }
+}
+
+/* =========================================
+   REGLAS GENERALES QUE NO SON EXCLUSIVAS
+   DEL CELULAR
+========================================= */
+
 .site-footer {
   width: 100%;
   margin-top: 24px;
@@ -1009,7 +1122,6 @@ header {
   color: #ffffff;
   font-family: Georgia, serif;
 }
-
 
 /* Ajustes exclusivos para las páginas 14 y 15 */
 .chapter-three {
@@ -1040,7 +1152,7 @@ header {
   padding-top: 6px;
 }
 
-
+/* Créditos del sitio */
 .footer-title {
   margin: 0 0 8px;
   font-size: 15px;
@@ -1058,98 +1170,7 @@ header {
   font-size: 12px;
   color: #aaaaaa;
 }
-
-     }
-
-    /* Adaptación del contenedor del libro */
-.book-stage {
-  width: 100%;
-  max-width: 1100px;
-  min-width: 0;
-  margin: 0 auto;
-  padding: 0;
-}
-
-#book {
-  width: 100%;
-  max-width: 1100px;
-  min-width: 0;
-}
-
-/* =========================================
-   AJUSTE RESPONSIVO DEL LIBRO
-   Computadora y tablet en ventana reducida
-========================================= */
-
-.book-stage {
-  width: 100%;
-  max-width: 1100px;
-  min-width: 0;
-  margin: 0 auto;
-  padding: 0 12px;
-  box-sizing: border-box;
-}
-
-#book {
-  width: 100%;
-  max-width: 1100px;
-  min-width: 0;
-  margin: 0 auto;
-}
-
-/* Evita que el contenido exceda los límites de cada página */
-#book .page {
-  box-sizing: border-box;
-  min-width: 0;
-  overflow: hidden;
-}
-
-/* Texto adaptable al ancho disponible */
-#book .written-page {
-  padding: clamp(14px, 3.5vw, 48px);
-  box-sizing: border-box;
-}
-
-#book .written-page p {
-  font-size: clamp(12px, 1.65vw, 19px);
-  line-height: 1.55;
-  overflow-wrap: break-word;
-}
-
-#book .written-page h2 {
-  font-size: clamp(17px, 2vw, 26px);
-  overflow-wrap: break-word;
-}
-
-/* Imágenes contenidas dentro de sus páginas */
-#book .page img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  box-sizing: border-box;
-}
-
-/* Tablet y ventanas de escritorio estrechas */
-@media screen and (min-width: 601px) and (max-width: 1100px) {
-  .book-stage {
-    width: 100%;
-    padding: 0 8px;
-  }
-
-  #book {
-    width: 100%;
-  }
-
-  #book .written-page {
-    padding: clamp(12px, 2.5vw, 28px);
-  }
-
-  #book .written-page p {
-    font-size: clamp(12px, 1.5vw, 16px);
-    line-height: 1.45;
-  }
-}
-  </style>
+</style>
 </head>
 
 <body>
