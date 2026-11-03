@@ -1075,6 +1075,80 @@ header {
   max-width: 1100px;
   min-width: 0;
 }
+
+/* =========================================
+   AJUSTE RESPONSIVO DEL LIBRO
+   Computadora y tablet en ventana reducida
+========================================= */
+
+.book-stage {
+  width: 100%;
+  max-width: 1100px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+#book {
+  width: 100%;
+  max-width: 1100px;
+  min-width: 0;
+  margin: 0 auto;
+}
+
+/* Evita que el contenido exceda los límites de cada página */
+#book .page {
+  box-sizing: border-box;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Texto adaptable al ancho disponible */
+#book .written-page {
+  padding: clamp(14px, 3.5vw, 48px);
+  box-sizing: border-box;
+}
+
+#book .written-page p {
+  font-size: clamp(12px, 1.65vw, 19px);
+  line-height: 1.55;
+  overflow-wrap: break-word;
+}
+
+#book .written-page h2 {
+  font-size: clamp(17px, 2vw, 26px);
+  overflow-wrap: break-word;
+}
+
+/* Imágenes contenidas dentro de sus páginas */
+#book .page img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  box-sizing: border-box;
+}
+
+/* Tablet y ventanas de escritorio estrechas */
+@media screen and (min-width: 601px) and (max-width: 1100px) {
+  .book-stage {
+    width: 100%;
+    padding: 0 8px;
+  }
+
+  #book {
+    width: 100%;
+  }
+
+  #book .written-page {
+    padding: clamp(12px, 2.5vw, 28px);
+  }
+
+  #book .written-page p {
+    font-size: clamp(12px, 1.5vw, 16px);
+    line-height: 1.45;
+  }
+}
   </style>
 </head>
 
