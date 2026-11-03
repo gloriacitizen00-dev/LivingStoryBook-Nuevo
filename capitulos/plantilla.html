@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Plantilla de capítulo</title>
+
+  <style>
+    :root {
+      --paper: #f5ecd9;
+      --ink: #30271f;
+      --gold: #b69a68;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 24px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, serif;
+    }
+
+    .chapter {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .chapter-number {
+      color: #8c7a60;
+      text-align: center;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 24px 0 36px;
+      font-size: clamp(30px, 5vw, 46px);
+      font-weight: normal;
+      text-align: center;
+    }
+
+    .chapter-text {
+      font-size: 19px;
+      line-height: 1.9;
+      white-space: pre-line;
+    }
+
+    .chapter-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 32px auto;
+    }
+
+    .chapter-end {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--gold);
+      text-align: center;
+      color: #8c7a60;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 28px 18px;
+      }
+
+      .chapter-text {
+        font-size: 17px;
+        line-height: 1.8;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="chapter">
+
+    <!-- Número del capítulo -->
+    <p class="chapter-number">Capítulo 1</p>
+
+    <!-- Título -->
+    <h1>Título del capítulo</h1>
+
+    <!-- Narración y diálogos -->
+    <section class="chapter-text">
+Aquí comienza la narración del capítulo.
+
+—Aquí comienza un diálogo.
+
+Podés agregar más párrafos y diálogos.
+    </section>
+
+    <!-- Imagen opcional: reemplazá la ruta cuando tengas una -->
+    <!--
+    <img
+      class="chapter-image"
+      src="../images/mi-imagen.jpg"
+      alt="Descripción de la ilustración"
+    >
+    -->
+
+    <!-- Cierre -->
+    <footer class="chapter-end">
+      Fin del capítulo
+    </footer>
+
+  </main>
+</body>
+</html>

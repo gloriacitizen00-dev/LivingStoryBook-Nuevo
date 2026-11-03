@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Living Story Book</title>
+
+  <style>
+    :root {
+      --paper: #f5ecd9;
+      --ink: #30271f;
+      --gold: #b69a68;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 24px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--paper);
+      background:
+        radial-gradient(ellipse at center, #554637, #211d19);
+      font-family: Georgia, serif;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(27px, 4vw, 44px);
+      font-weight: normal;
+      letter-spacing: 3px;
+      text-align: center;
+    }
+
+    .subtitle {
+      margin: 0 0 30px;
+      color: #d7c5a8;
+      text-align: center;
+    }
+
+    .book-stage {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1800px;
+    }
+
+    #book {
+      width: min(1100px, 94vw);
+      margin: 0 auto;
+    }
+
+    .page {
+      background: var(--paper);
+      color: var(--ink);
+      overflow: hidden;
+      border: 1px solid #d4c3a4;
+    }
+
+    .cover-page {
+      background: #241b15;
+      border: 2px solid var(--gold);
+    }
+
+    .cover-page img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .blank-page {
+      background:
+        linear-gradient(
+          to right,
+          #e4d7c0 0%,
+          var(--paper) 8%,
+          var(--paper) 94%,
+          #e8ddc8 100%
+        );
+    }
+
+    .written-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+      text-align: center;
+      background:
+        linear-gradient(
+          to right,
+          #e8ddc8 0%,
+          var(--paper) 10%,
+          var(--paper) 92%,
+          #e4d7c0 100%
+        );
+    }
+
+    .written-page h2 {
+      margin: 0 0 32px;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: normal;
+    }
+
+    .written-page p {
+      max-width: 420px;
+      font-size: 19px;
+      line-height: 1.9;
+      white-space: pre-line;
+    }
+
+    .page-number {
+      margin-top: auto;
+      padding-top: 28px;
+      color: #8c7a60;
+      font-size: 13px;
+    }
+
+    .hint {
+      margin-top: 24px;
+      color: #e0d0b7;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 8px;
+      }
+
+      .subtitle {
+        margin-bottom: 20px;
+      }
+
+      #book {
+        width: 94vw;
+      }
+
+      .written-page {
+        padding: 28px 22px;
+      }
+
+      .written-page h2 {
+        font-size: 27px;
+        margin-bottom: 22px;
+      }
+
+      .written-page p {
+        font-size: 17px;
+        line-height: 1.75;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Living Story Book</h1>
+    <p class="subtitle">Una historia que cobra vida.</p>
+  </header>
+
+  <main class="book-stage">
+    <div id="book">
+
+      <!-- Portada física -->
+      <div class="page cover-page" data-density="hard">
+        <img
+          src="images/magic.jpg"
+          alt="Portada de Living Story Book"
+        >
+      </div>
+
+      <!-- Apertura 1: izquierda en blanco -->
+      <div class="page blank-page"></div>
+
+      <!-- Apertura 1: dedicatoria a la derecha -->
+      <div class="page written-page">
+        <h2>Dedicatoria</h2>
+        <p>Este espacio está reservado para tu dedicatoria.</p>
+        <span class="page-number">1</span>
+      </div>
+
+      <!-- Apertura 2: izquierda en blanco -->
+      <div class="page blank-page"></div>
+
+      <!-- Apertura 2: prefacio a la derecha -->
+      <div class="page written-page">
+        <h2>Prefacio</h2>
+        <p>Aquí comenzará el prefacio de Living Story Book.</p>
+        <span class="page-number">3</span>
+      </div>
+
+      <!-- Página de reserva para mantener la estructura -->
+      <div class="page blank-page"></div>
+
+    </div>
+  </main>
+
+  <p class="hint">
+    Arrastrá una esquina de la hoja para pasar la página.
+  </p>
+
+  <!-- Motor de paginación -->
+  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+
+  <script>
+    const bookElement = document.getElementById("book");
+
+    if (typeof St === "undefined" || !St.PageFlip) {
+      document.querySelector(".hint").textContent =
+        "No se pudo cargar el motor del libro. Comprobá tu conexión a Internet.";
+    } else {
+      const pageFlip = new St.PageFlip(bookElement, {
+        width: 550,
+        height: 720,
+        size: "stretch",
+
+        minWidth: 280,
+        maxWidth: 1100,
+        minHeight: 360,
+        maxHeight: 1440,
+
+        showCover: true,
+        usePortrait: true,
+        drawShadow: true,
+        maxShadowOpacity: 0.55,
+        flippingTime: 1000,
+        mobileScrollSupport: false,
+        useMouseEvents: true,
+        disableFlipByClick: false,
+        clickEventForward: true,
+        startPage: 0,
+        autoSize: true
+      });
+
+      pageFlip.loadFromHTML(
+        document.querySelectorAll("#book .page")
+      );
+    }
+  </script>
+</body>
+</html>
