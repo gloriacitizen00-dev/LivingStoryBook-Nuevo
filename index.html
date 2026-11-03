@@ -931,6 +931,30 @@ header {
     margin: auto;
 }
 
+  
+.header-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 220px;
+  margin: 18px auto 24px;
+}
+
+.header-divider span {
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.45;
+}
+
+.header-divider i {
+  width: 8px;
+  height: 8px;
+  border: 1px solid currentColor;
+  transform: rotate(45deg);
+  opacity: 0.7;
+}
 
     @media (max-width: 600px) {
       body {
@@ -1062,6 +1086,12 @@ window.gtranslateSettings = {
     Arrastrá las esquinas para pasar las páginas.
   </p>
 </header>
+
+  <div class="header-divider">
+  <span></span>
+  <i></i>
+  <span></span>
+</div>
 
   <main class="book-stage">
     <div id="book">
