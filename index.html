@@ -962,158 +962,45 @@ header {
   opacity: 0.7;
 }
 
-   /* =========================================
-   RESPONSIVE: COMPUTADORA, TABLET Y CELULAR
-========================================= */
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 8px;
+      }
 
-/* Contenedor general */
-.book-stage {
-  width: 100%;
-  max-width: 1100px;
-  min-width: 0;
-  margin: 0 auto;
-  padding: 0 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  perspective: 1800px;
-  box-sizing: border-box;
-}
+      .subtitle {
+        margin-bottom: 20px;
+      }
 
-/* El ancho se adapta al espacio disponible */
-#book {
-  width: min(1100px, 94vw);
-  max-width: 100%;
-  min-width: 0;
-  margin: 0 auto;
-}
+      #book {
+        width: 94vw;
+      }
 
-/* Las páginas conservan su estructura original */
-.page {
-  box-sizing: border-box;
-  min-width: 0;
-}
+      .written-page {
+        padding: 28px 22px;
+      }
 
-/* =========================================
-   TABLET Y VENTANAS DE ESCRITORIO REDUCIDAS
-========================================= */
+      .written-page h2 {
+        font-size: 27px;
+        margin-bottom: 22px;
+      }
 
-@media screen and (min-width: 601px) and (max-width: 1100px) {
+      .written-page p {
+        font-size: 17px;
+        line-height: 1.75;
+      }
 
-  body {
-    padding: 18px 8px;
-  }
+     .book-instruction {
+        display: block;
+        width: 100%;
+        margin: -16px auto 30px;
+        color: #ffffff;
+        text-align: center;
+        font-family: Georgia, serif;
+        font-size: 14px;
+        line-height: 1.7;
+      }
 
-  .book-stage {
-    width: 100%;
-    padding: 0 4px;
-  }
-
-  #book {
-    width: 96vw;
-    max-width: 100%;
-  }
-
-  /* Ajustes solo para páginas escritas */
-  .written-page {
-    padding: clamp(14px, 3vw, 32px);
-  }
-
-  .written-page h2 {
-    font-size: clamp(19px, 2.4vw, 30px);
-    margin-bottom: clamp(12px, 2vw, 24px);
-  }
-
-  .written-page p {
-    font-size: clamp(13px, 1.5vw, 17px);
-    line-height: 1.55;
-  }
-
-  .chapter-index {
-    gap: 8px;
-    margin-top: 12px;
-  }
-
-  .chapter-index a {
-    padding: 8px 10px;
-    font-size: clamp(11px, 1.35vw, 15px);
-  }
-
-  .page-number {
-    padding-top: 12px;
-    font-size: 12px;
-  }
-}
-
-/* =========================================
-   CELULAR: UNA PÁGINA VISIBLE
-========================================= */
-
-@media screen and (max-width: 600px) {
-
-  body {
-    padding: 20px 8px;
-  }
-
-  .subtitle {
-    margin-bottom: 20px;
-  }
-
-  .book-stage {
-    width: 100%;
-    padding: 0;
-  }
-
-  #book {
-    width: 94vw;
-    max-width: 100%;
-  }
-
-  .written-page {
-    padding: 28px 22px;
-  }
-
-  .written-page h2 {
-    font-size: 27px;
-    margin-bottom: 22px;
-  }
-
-  .written-page p {
-    font-size: 17px;
-    line-height: 1.75;
-  }
-
-  .book-instruction {
-    display: block;
-    width: 100%;
-    margin: -16px auto 30px;
-    color: #ffffff;
-    text-align: center;
-    font-family: Georgia, serif;
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  .chapter-index {
-    gap: 8px;
-    margin-top: 14px;
-  }
-
-  .chapter-index a {
-    padding: 9px 10px;
-    font-size: 13px;
-  }
-
-  .page-number {
-    padding-top: 16px;
-  }
-}
-
-/* =========================================
-   REGLAS GENERALES QUE NO SON EXCLUSIVAS
-   DEL CELULAR
-========================================= */
-
+      
 .site-footer {
   width: 100%;
   margin-top: 24px;
@@ -1122,6 +1009,7 @@ header {
   color: #ffffff;
   font-family: Georgia, serif;
 }
+
 
 /* Ajustes exclusivos para las páginas 14 y 15 */
 .chapter-three {
@@ -1152,7 +1040,7 @@ header {
   padding-top: 6px;
 }
 
-/* Créditos del sitio */
+
 .footer-title {
   margin: 0 0 8px;
   font-size: 15px;
@@ -1170,7 +1058,24 @@ header {
   font-size: 12px;
   color: #aaaaaa;
 }
-</style>
+
+     }
+
+    /* Adaptación del contenedor del libro */
+.book-stage {
+  width: 100%;
+  max-width: 1100px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 0;
+}
+
+#book {
+  width: 100%;
+  max-width: 1100px;
+  min-width: 0;
+}
+  </style>
 </head>
 
 <body>
